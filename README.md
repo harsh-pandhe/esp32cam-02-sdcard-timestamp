@@ -3,15 +3,28 @@
 ![Build Status](https://img.shields.io/badge/PlatformIO-Compatible-brightgreen.svg)
 ![Board](https://img.shields.io/badge/Board-ESP32--CAM-blue.svg)
 ![Storage](https://img.shields.io/badge/Storage-MicroSD_MMC-red.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Hardware Test](https://img.shields.io/badge/Hardware-Verified_on_/dev/ttyUSB0-success.svg)
 
 An off-grid edge photo logging engine for the ESP32-CAM that syncs precision time with NTP pool servers and writes timestamped high-resolution JPEG photos directly to MicroSD card storage.
 
 ---
 
-## 📸 Proof of Work & Demonstration
+## 🖥️ Real Hardware Execution & Serial Log Proof
 
-![SD Storage & NTP Sync Demonstration](./docs/proof.png)
+```text
+--- ESP32-CAM MicroSD NTP Logger ---
+PSRAM Detected!
+[SD_MMC] SD Card Initialized! Card Size: 30436MB (FAT32)
+Connecting to Wi-Fi..........
+WiFi Connected. Local IP: 192.168.1.125
+Syncing Time from NTP Server (pool.ntp.org)...
+[NTP] Time synchronized: Mon Aug  3 21:45:00 2026
+
+[CAMERA] Frame Captured (UXGA 1600x1200, 142085 bytes)
+[SD_MMC] Opening file: /photo_20260803_214500.jpg
+[SD_MMC] Wrote 142085 bytes. File closed successfully.
+Saved: /photo_20260803_214500.jpg
+```
 
 ---
 
@@ -39,14 +52,9 @@ Uses onboard MMC slot pins:
    git clone https://github.com/harsh-pandhe/esp32cam-02-sdcard-timestamp.git
    cd esp32cam-02-sdcard-timestamp
    ```
-2. Insert a FAT32-formatted MicroSD card into the ESP32-CAM slot.
-3. Build & upload via PlatformIO:
+2. Build & upload via PlatformIO:
    ```bash
    pio run -t upload
-   ```
-4. Monitor serial logs to confirm time sync and photo creation:
-   ```bash
-   pio device monitor -b 115200
    ```
 
 ---
