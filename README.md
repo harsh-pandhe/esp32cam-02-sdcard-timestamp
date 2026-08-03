@@ -9,7 +9,9 @@ An off-grid edge photo logging engine for the ESP32-CAM that syncs precision tim
 
 ---
 
-## 🖥️ Real Hardware Execution & Serial Log Proof
+## 🖥️ Real Live Dashboard Interface & Hardware Trace
+
+![Real Live Web Dashboard Footage](./docs/dashboard.png)
 
 ```text
 --- ESP32-CAM MicroSD NTP Logger ---
